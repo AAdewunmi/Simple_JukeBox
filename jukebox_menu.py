@@ -42,3 +42,11 @@ albums = [
      ]
      ),
 ]
+
+# Iterating Over And Unpacking Albums
+while True:
+    print("*** Please choose your album (invalid choice exists): \n")
+    for index, (title, artist, year, songs) in enumerate(albums):
+        print("{}: {}, {}, {}, {}"
+              .format(index + 1, title, artist, year, songs))
+    break
