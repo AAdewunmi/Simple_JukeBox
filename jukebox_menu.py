@@ -42,11 +42,29 @@ albums = [
      ]
      ),
 ]
+SONGS_LIST_INDEX = 3
+SONG_TITLE_INDEX = 1
 
-# Iterating Over And Unpacking Albums
 while True:
-    print("*** Please choose your album (invalid choice exists): \n")
+    # Iterating And Unpacking Albums
+    print("+++ Jukebox Player +++")
+    print(">>> Please choose your album (or Type 0 to exit!): \n")
     for index, (title, artist, year, songs) in enumerate(albums):
-        print("{}: {}, {}, {}, {}"
-              .format(index + 1, title, artist, year, songs))
-    break
+        print("{}: {}".format(index + 1, title))
+    choice = int(input())
+    if 1 <= choice <= len(albums):
+        songs_list = albums[choice - 1][SONGS_LIST_INDEX]
+    else:
+        break
+    # Print / Display List Of Songs
+    print(">>> Please choose your song: ")
+    for index, (track_number, song) in enumerate(songs_list):
+        print("{}: {}".format(index + 1, song))
+    song_choice = int(input())
+    if 1 <= song_choice <= len(songs_list):
+        title = songs_list[song_choice - 1][SONG_TITLE_INDEX]
+    else:
+        break
+    print(">>> Playing Track: {}".format(title))
+    print("=" * 40)
+print("\nGood Bye 😁")
